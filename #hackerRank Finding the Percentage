@@ -1,0 +1,20 @@
+#hackerRank Finding the Percentage
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    counter=0
+    if 2<=n<=10:
+        while n!=counter:
+            for i in range(n):
+                name, *mark=map(str,input().split(" ")) #name ve mark değişkenlerini birer boşluğu split parametresi ile sağlıyoruz.
+                counter+=1 # buradaki sayaç eklenen her bir öğrenci ve buna ait değerlerin n değerini geçmemesi
+                mark=list(map(int,mark)) #map fonksiyonu mark listesindeki elemanları integerı çevirip sonra list ile mark tekrardan listeye eşitlenir
+                if len(mark)==3: #soruda notların 3 adet olması isteniyor
+                    for j in mark:
+                        average= sum(mark)/3 #sum fonk listeye uygulayıp ortalamasını alıyoruz
+                        student_marks[name]= average #sözlüğe name keylerine average valuealeri ekliyoruz.
+query_name=input() #sorgu ismini alıyoruz
+if query_name in student_marks: #sorgulamak istediğimiz ismin dict imizde olup olmadığını sorguluyoruz
+    print(format((student_marks[query_name]),'.2f')) #soruda çıktının virgülden sonraki basamak sayısı 2 olarak isteniyor. burada format parametresini kullanarak bunu sağlıyoruz.
+else:
+    print("ogrenci bulunamadi.")
