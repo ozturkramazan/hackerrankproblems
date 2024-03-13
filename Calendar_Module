@@ -1,0 +1,13 @@
+#Calendar Module
+import calendar
+
+MM, DD, YYYY = map(int, input().split(" "))
+if 2000<YYYY<3000:
+# Tarihin haftanın hangi gününe denk geldiğini bulma
+    weekday_num = calendar.weekday(YYYY, MM, DD)
+    
+    # Haftanın gününü yazı ile almak için
+    weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    weekday_name = weekdays[weekday_num]
+    weekday_name=weekday_name.upper() #haftanın gününün harflerini büyük harfle yazma
+    print("{}".format(weekday_name))
