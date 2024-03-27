@@ -1,0 +1,20 @@
+#MxN boyutunda kapı matı
+#N tek sayı ve 3 katı M ye eşit
+#matın merkezinde 'WELCOME' yazacak
+#| . - karakterleri dizaynda yer alacak
+
+N,M = map(int,input().split())      # N ve M degerlerinin alinmasi
+if 5<N<101 and 15<M<303:            #sınırlamalar
+        if 3*N==M and N%2!=0:       #M in 3 kati ve N in tek kati durumunun kontrolu
+            for i in range(0,(int((N-1)/2))): #welcome yazisina kadar ki tekrar
+                M-=3
+                print('-'*(int((M-(3*i))/2)) + ('.|.'*(1+2*i)) + '-'*(int((M-(3*i))/2)))
+
+M += 3*((N-1)/2) #M degerinin tekrar sifirlanmasi
+
+print('-'*(int((M-len('WELCOME'))/2))+'WELCOME'+('-'*(int((M-len('WELCOME'))/2)))) #welcome yazisi
+
+for i in range((int((N-1)/2)), 0, -1): #orgunun tersten yazilmasi
+
+        print('-'*(int((M-6*i))) + ('.|.'*(2*i-1)) + '-'*(int((M-6*i))))
+        M -= 3
